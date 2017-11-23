@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TDAT2003Oving5</title>
+    <meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery-3.2.1.min.js"></script>
+    <script language="javascript">
+        $(document).ready(function() {
+            $.get("rest/thepath", function(data){
+                $("#myid").html(data);
+            });
+        });
+    </script>
+</head>
+<body>
+<div id="myid"></div>
+</body>
+</html>
