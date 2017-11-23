@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <title>Source</title>
+    <script language="javascript">
+        $(document).ready(function() {
+            $("#post_button").on("click", function () {
+                var string = $("#input").val();
+                $.ajax({
+                    url: 'rest/thepath/',
+                    type: 'POST',
+                    data: JSON.stringify(string).replace(/"/g,''),
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json'
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div>
+    <h1 id="h1">Good job!</h1><br/>
+    <input id="input">
+    <button id="post_button">Update</button>
+</div>
+</body>
+</html>

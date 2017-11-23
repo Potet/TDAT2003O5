@@ -1,8 +1,6 @@
 package services;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 
 /**
@@ -10,10 +8,17 @@ import javax.ws.rs.core.MediaType;
  */
 @Path("/thepath/")
 public class AService {
+    private static String message = "Dette er en beskjed";
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
     public String getSomething() {
-        return "Hei!";
+        return message;
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void setMessage(String m){
+        message = m;
     }
 }

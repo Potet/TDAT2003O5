@@ -1,20 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>TDAT2003Oving5</title>
+    <title>Trykk på knappen</title>
     <meta charset="UTF-8">
     <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="jquery-3.2.1.min.js"></script>
     <script language="javascript">
         $(document).ready(function() {
-            $.get("rest/thepath", function(data){
-                $("#myid").html(data);
+            $("#running_button").on("mouseenter", function(){
+                var tpx = Math.floor(Math.random()*90);
+                var lpx = Math.floor(Math.random()*90);
+                var hpx = 5+Math.floor(Math.random()*6);
+                var wpx = 5+Math.floor(Math.random()*6);
+                $(event.currentTarget).animate({
+                    'top': tpx+'%',
+                    'left': lpx+'%',
+                    'width': wpx+'%',
+                    'height':hpx+'%'
+                }, "slow");
+            }).on("click", function(){
+                var win = window.open("sourcefile.html", '_blank');
+                win.focus();
+                window.location.href = 'displayfile.html';
             });
         });
     </script>
 </head>
 <body>
-<div id="myid"></div>
+<button id="running_button" style="position: fixed">Press me!</button>
 </body>
 </html>
